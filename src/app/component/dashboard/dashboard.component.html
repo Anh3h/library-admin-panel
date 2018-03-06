@@ -1,3 +1,68 @@
-<p>
-  dashboard works!
-</p>
+<div *ngIf="progressBar" class="spinner">
+    <div id="spinner"></div>
+</div>
+<div class="container">
+    <div class="body">
+        <mat-card class="card">
+            <i class="fa fa-university fa-2x" ></i>
+            <p class="amount">20</p>
+            <p>Libraries</p>
+        </mat-card>
+        <mat-card class="card">
+            <i class="fa fa-book fa-2x" ></i>
+            <p class="amount">20</p>
+            <p>Books</p>
+        </mat-card>
+        <mat-card class="card">
+            <i class="fa fa-exchange fa-2x" ></i>
+            <p class="amount">20</p>
+            <p>Transaction</p>
+        </mat-card>
+    </div>
+    <mat-table #table [dataSource]="datasource">
+
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> User's Name </mat-header-cell>
+          <mat-cell *matCellDef="let transaction"> {{transaction.user.firstName + ' ' + transaction.user.lastName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="isbn">
+          <mat-header-cell *matHeaderCellDef> Book ISBN </mat-header-cell>
+          <mat-cell *matCellDef="let transaction"> {{transaction.resource.isbn}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="reservationDate">
+          <mat-header-cell *matHeaderCellDef> Rservation Date </mat-header-cell>
+          <mat-cell *matCellDef="let transaction"> {{transaction.reservationDate}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="checkout">
+          <mat-header-cell *matHeaderCellDef> Check-out </mat-header-cell>
+          <mat-cell *matCellDef="let transaction"> {{transaction.checkout}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="checkin">
+            <mat-header-cell *matHeaderCellDef> Check-in </mat-header-cell>
+            <mat-cell *matCellDef="let transaction"> {{transaction.checkin}} </mat-cell>
+          </ng-container>
+
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+          <mat-cell *matCellDef="let transaction">
+            <button mat-icon-button (click)="redirect('/transaction/view/', transaction.uuid)">
+              <mat-icon>
+                <i class="fa fa-eye blue" aria-hidden="true"></i>
+              </mat-icon>
+            </button>
+            <button mat-icon-button (click)="redirect('/transaction/', transaction.uuid)">
+                <mat-icon>
+                  <i class="fa fa-pencil green" aria-hidden="true"></i>
+                </mat-icon>
+              </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+</div>

@@ -12,6 +12,7 @@ export class SideNavComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    //Test code
     //this.verifyAuth();
   }
 

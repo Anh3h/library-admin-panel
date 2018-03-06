@@ -28,16 +28,20 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.progressBar = true;
-    console.log("initializing Login component");
+    console.log("Initializing Login component");
     localStorage.removeItem('token');
     this.progressBar = false;
   }
 
-  authenticate(){
+  public authenticate(){
     this.progressBar = true;
     if( this.email && this.password ) {
       this.sentRequest = true;
+
+      //Test code
       console.log('Authenticating user...')
+      this.router.navigate(['/dashboard']);
+
       /* var authUrl = `/oauth/token?grant_type=password&username=${this.email}&password=`+this.password;
       this.apiService.post(authUrl, {}, TokenType.BASIC, this.successfullyAuthUser, (error) => {
         this.isAuthenticatic = false;
