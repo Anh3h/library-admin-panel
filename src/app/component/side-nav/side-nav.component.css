@@ -1,0 +1,42 @@
+mat-nav-list {
+    overflow: auto;
+    font-size: 17px;
+    font-weight: thin;
+    height: 98%;
+    background-color: #fff;
+    color: rgb(68, 67, 67);
+}
+mat-nav-list ul li {
+    list-style: none;
+    padding: 0px;
+    padding-right: 40%;
+    margin: 0px;
+    line-height: 40px;
+    cursor: pointer;
+}
+mat-nav-list ul, li a {
+    text-decoration: none;
+    padding: 9%;
+    font-size: 17px;
+    color: rgb(68, 67, 67);
+}
+mat-nav-list ul li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+mat-nav-list  li.active {
+    border-left: 3px solid #fff;
+    background-color: rgba(0, 0, 0, 0.1);
+    /* border: solid 1px #FEE823; */
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.brand {
+    padding-top: 10%;
+    text-align: center;
+}
+/* mat-nav-list  li.active a {
+    color: #FEE823;
+} */

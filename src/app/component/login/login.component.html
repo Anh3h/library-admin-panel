@@ -1,0 +1,25 @@
+<div *ngIf="progressBar" class="spinner">
+  <div id="spinner"></div>
+</div>
+<div class="container">
+  <mat-card>
+    <mat-card-title>LOG IN  </mat-card-title>
+    <form class="login-form">
+      <mat-chip-list *ngIf="sentRequest && !isAuthenticatic">
+        <mat-chip class="error" style="background-color: #FF4415;" selected="true">
+          {{ error }}
+        </mat-chip>
+      </mat-chip-list>
+      <mat-form-field class="login-full-width">
+        <input matInput [(ngModel)]="email" name="email" placeholder="Email" required>
+      </mat-form-field>
+
+      <mat-form-field class="login-full-width">
+        <input matInput [(ngModel)]="password" name="password" type="password" placeholder="Password" required>
+      </mat-form-field>
+      <div>
+        <button class="primary" (click)="authenticate()" mat-button>Log In</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

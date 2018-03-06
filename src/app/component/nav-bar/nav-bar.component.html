@@ -1,0 +1,18 @@
+<span class="brand">
+  <img id="display" src="../../assets/logo.png" alt="Brand Logo" >
+</span>
+<span class="menu">
+  <button mat-button [matMenuTriggerFor]="menu">
+      <i class="fa fa-cog"></i>
+      Setting
+      <i class="fa fa-angle-down"></i>
+  </button>
+  <mat-menu #menu="matMenu">
+      <button (click)="getProfile()" mat-menu-item>Profile
+          <i class="fa fa-user"></i>
+      </button>
+      <button (click)="logout()" mat-menu-item>Logout
+          <i class="fa fa-sign-out"></i>
+      </button>
+  </mat-menu>
+</span>
