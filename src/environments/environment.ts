@@ -6,11 +6,9 @@
 export const environment = {
   production: false,
   protocol: 'http',
-  /*domain: 'allenbaiyee.homelinux.net',
-  port: '8086',*/
-  domain: '91.250.80.22',
-  port: '8086',
+  domain: 'localhost',
+  port: '8080',
   timeout: 5000,
-  clientId: "clientId",
-  clientSecret: "secret"
+  clientId: "admin",
+  clientSecret: "password"
 };
