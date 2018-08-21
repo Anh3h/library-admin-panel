@@ -55,10 +55,9 @@ export class LoginComponent implements OnInit {
         this.apiService.post(url, {}, TokenType.BASIC, (response) => {
           this.updateStorage(response);
         },  (error) => {
-          this.error.message = error.message;
+          this.error.message = "Invalid email or password";
           this.error.status = true
         })
-        return;
       }
       this.progressBar = false;
       return;
