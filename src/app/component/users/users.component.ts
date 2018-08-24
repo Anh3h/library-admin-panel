@@ -33,21 +33,24 @@ export class UsersComponent implements OnInit {
   }
 
   public onPrevious() {
-    this.pageParams.page = (this.page.number - 1);
+    this.pageParams.page = (this.page.number);
+    this.progressBar = true;
     this.getUsers();
   }
 
   public onNext() {
-    this.pageParams.page = (this.page.number + 1);
+    this.pageParams.page = (this.page.number + 2);
+    this.progressBar = true;
     this.getUsers();
   }
 
   public goToPage(n: number) {
-    this.pageParams.page = (n-1);
+    this.pageParams.page = (n);
+    this.progressBar = true;
     this.getUsers();
   }
 
-  getUsers() {
+  private getUsers() {
     this.apiService.get(this.url + `?size=${this.pageParams.size}&page=${this.pageParams.page}`, TokenType.BEARER, (data) => {
       this.page.first = data.first ;
       this.page.last = data.last;
@@ -67,13 +70,13 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  openSnackBar(message: string, ) {
+  public openSnackBar(message: string, ) {
     this.snackBar.open(message, '', {
       duration: 5000,
     });
   }
 
-  redirect(url: string, parameter?: string){
+  public redirect(url: string, parameter?: string){
     this.progressBar = true;
     if (parameter) {
       this.router.navigate([url, parameter]);
@@ -84,17 +87,17 @@ export class UsersComponent implements OnInit {
     }
   }
 
-  deleteUser(user_uuid) {
+  public deleteUser(userId) {
     this.progressBar = true;
-    if ( user_uuid == null || user_uuid == undefined || user_uuid == '') {
+    if ( userId == null || userId == undefined || userId == '') {
       this.progressBar = false;
-      this.openSnackBar('UUID cannot be empty');
+      this.openSnackBar('ID cannot be empty');
     } else {
-      if (!window.confirm("Möchten Sie diesen Benutzer wirklich dauerhaft löschen? ")) {
+      if (!window.confirm("Are you sure you want to permanently delete this user? ")) {
         this.progressBar = false;
         return
       }
-      let url = "/users/"+user_uuid;
+      let url = `/users/${userId}`;
       this.apiService.delete(url, TokenType.BEARER, (data) => {
         this.openSnackBar("Successfully deleted user")
         this.getUsers();

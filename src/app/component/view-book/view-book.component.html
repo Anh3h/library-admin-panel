@@ -1,3 +1,50 @@
-<p>
-  view-book works!
-</p>
+<div *ngIf="progressBar" class="spinner">
+    <div id="spinner"></div>
+  </div>
+  <div class=".container-wrapper">
+    <h2>Book</h2>
+    <mat-card class="container">
+      <button class="action" (click)="redirect('/users/edit')" mat-button>
+        EDIT
+      </button>
+      <mat-divider></mat-divider>
+      <table>
+        <tr>
+          <td>Title</td>
+          <td>{{ book.title }}</td>
+        </tr>
+        <tr>
+          <td>ISBN</td>
+          <td>{{ book.isbn }}</td>
+        </tr>
+        <tr>
+          <td>Edition</td>
+          <td>{{ book.edition.username }}</td>
+        </tr>
+        <tr>
+          <td>Author</td>
+          <td>{{ book.auhtor }}</td>
+        </tr>
+        <tr>
+          <td>Publisher</td>
+          <td>{{ book.publisher }}</td>
+        </tr>
+        <tr>
+          <td>Publication Date</td>
+          <td>{{ book.publicationDate | date:'mediumDate' }}</td>
+        </tr>
+        <tr>
+          <td>Topic</td>
+          <td>{{ book.topic.name }}</td>
+        </tr>
+        <tr>
+          <td>Shelf</td>
+          <td>{{ book.shelf }}</td>
+        </tr>
+        <tr>
+          <td>Total quantity</td>
+          <td>{{ book.totalQty }}</td>
+        </tr>
+      </table>
+    </mat-card>
+  </div>
