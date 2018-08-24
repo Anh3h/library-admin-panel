@@ -1,3 +1,43 @@
-<p>
-  view-transaction works!
-</p>
+<div *ngIf="progressBar" class="spinner">
+  <div id="spinner"></div>
+</div>
+<div class=".container-wrapper">
+  <h2>Book</h2>
+  <mat-card class="container">
+    <button class="action" (click)="redirect('/users/edit')" mat-button>
+      EDIT
+    </button>
+    <mat-divider></mat-divider>
+    <table>
+      <tr>
+        <td>Book</td>
+        <td>
+          <p><strong>Title: </strong>{{ transaction.book.title }}</p>
+          <p><strong>Edition: </strong>{{ transaction.book.edition }}</p>
+          <p><strong>Author: </strong>{{ transaction.book.author }}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>User</td>
+        <td>
+            <p><strong>Name: </strong>{{ transaction.user.firstName }} {{ transaction.user.lastName }}</p>
+            <p><strong>Email: </strong>{{ transaction.user.email }}</p>
+          </td>
+      </tr>
+      <tr>
+        <td>Check-in</td>
+        <td>
+            <p><strong>Status: </strong>{{ transaction.checkOutStatus}}</p>
+            <p><strong>Date: </strong>{{ transaction.checkOut | date:'mediumDate' }}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Check-out</td>
+        <td>
+            <p><strong>Status: </strong>{{ transaction.checkInStatus }}</p>
+            <p><strong>Date: </strong>{{ transaction.checkIn | date:'mediumDate' }}</p>
+        </td>
+      </tr>
+    </table>
+  </mat-card>
+</div>

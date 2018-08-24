@@ -38,7 +38,7 @@ export class ViewBookComponent implements OnInit {
     this.getBook();
   }
 
-  getBook() {
+  private getBook() {
     this.apiService.get(this.url, TokenType.BEARER, (data) => {
       this.book = data;
       this.progressBar = false;
@@ -48,20 +48,16 @@ export class ViewBookComponent implements OnInit {
     });
   }
 
-  openSnackBar(message: string, ) {
+  public openSnackBar(message: string, ) {
     this.snackBar.open(message, '', {
       duration: 5000,
     });
   }
 
-  redirect(url: string){
+  public redirect(url: string){
     this.progressBar = true;
     this.router.navigate([url, this.book.id]);
     this.progressBar = false;
-  }
-
-  back() {
-    this.location.back();
   }
 
 }

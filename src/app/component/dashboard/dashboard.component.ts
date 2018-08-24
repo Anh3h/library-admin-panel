@@ -14,7 +14,7 @@ import { Page } from '../../model/Page';
 export class DashboardComponent implements OnInit {
 
   public progressBar = false;
-  public displayedColumns = [ 'user', 'book', 'checkoutStatus', 'checkout', 'checkin'];
+  public displayedColumns = [ 'user', 'book', 'checkoutStatus', 'checkout', 'checkin', 'action'];
   public transactions = new MatTableDataSource();
   public page = {} as Page;
   public pageParams = { size: 5, page: 1 }

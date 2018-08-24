@@ -47,7 +47,7 @@ export class ViewUserComponent implements OnInit {
     this.getUser();
   }
 
-  getUser() {
+  private getUser() {
     this.apiService.get(this.url, TokenType.BEARER, (data) => {
       this.user = data;
       this.progressBar = false;
@@ -57,13 +57,13 @@ export class ViewUserComponent implements OnInit {
     });
   }
 
-  openSnackBar(message: string, ) {
+  public openSnackBar(message: string, ) {
     this.snackBar.open(message, '', {
       duration: 5000,
     });
   }
 
-  redirect(url: string){
+  public redirect(url: string){
     this.progressBar = true;
     if ( this.id == 'profile' ) {
       this.router.navigate(['profile/updateProfile']);
@@ -73,12 +73,8 @@ export class ViewUserComponent implements OnInit {
     this.progressBar = false;
   }
 
-  updatePassword() {
+  public updatePassword() {
     this.router.navigate(['profile/updatePassword']);
-  }
-
-  back() {
-    this.location.back();
   }
 
 }

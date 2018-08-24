@@ -32,7 +32,7 @@
     color: #118C0C;
 }
 mat-table {
-    width: 80%;
+    width: 85%;
     margin-left: 3%;
 }
 .spinner {
@@ -61,4 +61,8 @@ mat-table {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+.action {
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.877);
 }

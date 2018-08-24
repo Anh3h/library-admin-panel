@@ -21,48 +21,41 @@
     </div>
     <mat-table #table [dataSource]="transactions">
 
-        <ng-container matColumnDef="user">
-          <mat-header-cell *matHeaderCellDef> User's Name </mat-header-cell>
-          <mat-cell *matCellDef="let transaction"> {{transaction.user.firstName + ' ' + transaction.user.lastName}} </mat-cell>
-        </ng-container>
+      <ng-container matColumnDef="user">
+        <mat-header-cell *matHeaderCellDef> User's Name </mat-header-cell>
+        <mat-cell *matCellDef="let transaction"> {{transaction.user.firstName + ' ' + transaction.user.lastName}} </mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="book">
-          <mat-header-cell *matHeaderCellDef> Book </mat-header-cell>
-          <mat-cell *matCellDef="let transaction"> {{transaction.book.title}} </mat-cell>
-        </ng-container>
+      <ng-container matColumnDef="book">
+        <mat-header-cell *matHeaderCellDef> Book </mat-header-cell>
+        <mat-cell *matCellDef="let transaction"> {{transaction.book.title}} </mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="checkout">
-          <mat-header-cell *matHeaderCellDef> Check-out </mat-header-cell>
-          <mat-cell *matCellDef="let transaction"> {{transaction.checkOut | date:'medium'}} </mat-cell>
-        </ng-container>
+      <ng-container matColumnDef="checkout">
+        <mat-header-cell *matHeaderCellDef> Check-out </mat-header-cell>
+        <mat-cell *matCellDef="let transaction"> {{transaction.checkOut | date:'mediumDate'}} </mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="checkoutStatus">
-          <mat-header-cell *matHeaderCellDef> Check-out status </mat-header-cell>
-          <mat-cell *matCellDef="let transaction"> {{transaction.checkOutStatus}} </mat-cell>
-        </ng-container>
+      <ng-container matColumnDef="checkoutStatus">
+        <mat-header-cell *matHeaderCellDef> Check-out status </mat-header-cell>
+        <mat-cell *matCellDef="let transaction"> {{transaction.checkOutStatus}} </mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="checkin">
-          <mat-header-cell *matHeaderCellDef> Check-in </mat-header-cell>
-          <mat-cell *matCellDef="let transaction"> {{transaction.checkIn | date:'medium'}} </mat-cell>
-        </ng-container>
+      <ng-container matColumnDef="checkin">
+        <mat-header-cell *matHeaderCellDef> Check-in </mat-header-cell>
+        <mat-cell *matCellDef="let transaction"> {{transaction.checkIn | date:'mediumDate'}} </mat-cell>
+      </ng-container>
 
-        <ng-container matColumnDef="action">
-          <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
-          <mat-cell *matCellDef="let transaction">
-            <button mat-icon-button (click)="redirect('/transaction/view/', transaction.uuid)">
-              <mat-icon>
-                <i class="fa fa-eye blue" aria-hidden="true"></i>
-              </mat-icon>
-            </button>
-            <button mat-icon-button (click)="redirect('/transaction/', transaction.uuid)">
-                <mat-icon>
-                  <i class="fa fa-pencil green" aria-hidden="true"></i>
-                </mat-icon>
-              </button>
-          </mat-cell>
-        </ng-container>
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell *matCellDef="let transaction">
+          <button class="action" (click)="redirect('/book-requests/', transaction.id)" mat-button>
+            VIEW
+          </button>
+        </mat-cell>
+      </ng-container>
 
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      </mat-table>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
 </div>
