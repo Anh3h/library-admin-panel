@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 
 import { Token } from '../../model/Token';
 import { Error } from '../../model/Error';
-import { TokenType } from '../../service/api.service';
-import { ApiService } from '../../service/api.service';
+import { TokenType, ApiService } from '../../service/api.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +17,6 @@ export class LoginComponent implements OnInit {
   public credential = {} as Credential;
   public password: string;
   public invalidEmail: string
-  private token: Token;
   public progressBar = false;
   public error: Error = new Error();
 

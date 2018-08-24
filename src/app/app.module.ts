@@ -13,6 +13,12 @@ import { LoginComponent } from './component/login/login.component';
 import { SideNavComponent } from './component/side-nav/side-nav.component';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { UsersComponent } from './component/users/users.component';
+import { TransactionsComponent } from './component/transactions/transactions.component';
+import { BooksComponent } from './component/books/books.component';
+import { ViewBookComponent } from './component/view-book/view-book.component';
+import { ViewUserComponent } from './component/view-user/view-user.component';
+import { ViewTransactionComponent } from './component/view-transaction/view-transaction.component';
 
 
 @NgModule({
@@ -21,7 +27,13 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     LoginComponent,
     SideNavComponent,
     NavBarComponent,
-    DashboardComponent
+    DashboardComponent,
+    UsersComponent,
+    TransactionsComponent,
+    BooksComponent,
+    ViewBookComponent,
+    ViewUserComponent,
+    ViewTransactionComponent
   ],
   imports: [
     BrowserModule,
