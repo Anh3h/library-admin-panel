@@ -27,7 +27,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.progressBar = true;
-    console.log("Initializing Dashboard component");
     this.verifyAuth();
     this.getTransactions();
     this.progressBar = false;

@@ -1,3 +1,42 @@
-<p>
-  view-user works!
-</p>
+<div *ngIf="progressBar" class="spinner">
+    <div id="spinner"></div>
+  </div>
+  <div class=".container-wrapper">
+    <h2>User</h2>
+    <mat-card class="container">
+      <button class="action" (click)="redirect('/users/edit')" mat-button>
+        EDIT
+      </button>
+      <button *ngIf="isProfile" class="action" (click)="updatePassword()" mat-button>
+        <i class="fa fa-lock" aria-hidden="true"></i>
+        UPDATE PASSWORD
+      </button>
+      <mat-divider></mat-divider>
+      <table>
+        <tr>
+          <td>Name</td>
+          <td>{{ user.firstName + ' ' + user.lastName }}</td>
+        </tr>
+        <tr>
+          <td>Username</td>
+          <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+          <td>Telephone</td>
+          <td>{{ user.telephone }}</td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td>{{ user.dob | date:'medium' }}</td>
+        </tr>
+        <tr>
+          <td>Role</td>
+          <td>{{ user.role.name }}</td>
+        </tr>
+      </table>
+    </mat-card>
+  </div>

@@ -27,9 +27,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.progressBar = true;
-    console.log("Initializing Login component");
-    localStorage.removeItem('token');
+    this.verifyAuth();
     this.progressBar = false;
+  }
+
+  private verifyAuth() {
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['/dashboard']);
+    }
   }
 
   private validateEmail() {
@@ -54,10 +59,10 @@ export class LoginComponent implements OnInit {
           this.updateStorage(response);
         },  (error) => {
           this.error.message = "Invalid email or password";
-          this.error.status = true
+          this.error.status = true;
+          this.progressBar = false;
         })
       }
-      this.progressBar = false;
       return;
     }
     this.error.message = "Fill or required fields"

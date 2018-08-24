@@ -19,6 +19,7 @@ import { BooksComponent } from './component/books/books.component';
 import { ViewBookComponent } from './component/view-book/view-book.component';
 import { ViewUserComponent } from './component/view-user/view-user.component';
 import { ViewTransactionComponent } from './component/view-transaction/view-transaction.component';
+import { PaginatorComponent } from './component/template/paginator/paginator.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ViewTransactionComponent } from './component/view-transaction/view-tran
     BooksComponent,
     ViewBookComponent,
     ViewUserComponent,
-    ViewTransactionComponent
+    ViewTransactionComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,
